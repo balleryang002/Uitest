@@ -24,7 +24,7 @@ time.sleep(1)
 
 
 #预售商品房买卖预告登记
-driver.find_element_by_xpath('//*[@id="content-index"]/div[1]/a[1]/div/span[2]').click()
+driver.find_element_by_xpath('//*[@id="content-index"]/div[3]/a/div/span[2]').click()
 time.sleep(1)
 
 #共有方式为单独拥有
@@ -32,8 +32,7 @@ driver.find_element_by_xpath('//*[@id="bdcsqb-form"]/div/label[2]').click()
 time.sleep(1)
 
 #申请人情况
-#===================================================================
-#填写权利人
+#======================#填写权利人=================================
 timeFormater="%Y%m%d%H%M$S"
 nowTime=time.strftime(timeFormater,time.localtime())
 driver.find_element_by_id("qwrxm1").send_keys(u'张三'+str(nowTime))
@@ -81,8 +80,10 @@ time.sleep(1)
 driver.find_element_by_id("dljg1").send_keys(u'江苏爬山虎')
 time.sleep(1)
 
-#======================================================================
-#填写义务人
+#========================#填写义务人===============================
+
+driver.execute_script('window.scrollTo(0,1000)')
+
 driver.find_element_by_id("ywrxm1").send_keys(u'李四'+str(nowTime))
 time.sleep(1)
 
@@ -129,8 +130,8 @@ time.sleep(1)
 driver.find_element_by_id("ydljg1").send_keys(u'浙江爬山虎')
 time.sleep(1)
 
-#不动产情况
-#===================================================================
+
+#=========================#不动产情况==============================
 
 #填写坐落
 driver.find_element_by_id("zl").send_keys(u'南京将军大道120号Ab座')
@@ -187,6 +188,58 @@ time.sleep(1)
 driver.find_element_by_id("ybdcqzh").send_keys("6200014-8531452332")
 time.sleep(1)
 
+
+#========================#填写抵押人===============================
+driver.execute_script('window.scrollTo(0,10000)')
+
+driver.find_element_by_id("qwrxm").send_keys(u'刘六'+str(nowTime))
+time.sleep(1)
+
+#填写共有比例
+driver.find_element_by_id("gybl").send_keys("80")
+time.sleep(1)
+
+#选择证件种类为身份证
+driver.find_elements_by_class_name("input-group-addon")[9].click()
+driver.find_element_by_xpath('//*[@id="bdcsqb-form"]/table/tbody/tr[24]/td[2]/div/ul/li[4]').click()
+time.sleep(1)
+
+#填写身份证号
+driver.find_element_by_id("zjh").send_keys("12354863214")
+time.sleep(1)
+
+#填写通讯住址
+driver.find_element_by_id("txdz").send_keys(u'浙江爬山虎ajiojadjaJJSKKDFA')
+time.sleep(1)
+
+#填写邮编
+driver.find_element_by_id("yb").send_keys('125243214')
+time.sleep(1)
+
+#填写法人代表
+driver.find_element_by_id("fddbr").send_keys(u'刘六四')
+time.sleep(1)
+
+#填写联系电话
+driver.find_element_by_id("flxdh").send_keys("123456789")
+time.sleep(1)
+
+#填写代理人姓名
+driver.find_element_by_id("dlrxm").send_keys(u'刘六四四')
+time.sleep(1)
+
+#填写联系电话
+driver.find_element_by_id("dlxdh").send_keys("987654321")
+time.sleep(1)
+
+#填写代理机构
+driver.find_element_by_id("dljg").send_keys(u'浙江爬山虎')
+time.sleep(1)
+
+
+
+
+
 #抵押情况
 #=====================================================================================
 #填写被担保债权数额
@@ -203,7 +256,7 @@ time.sleep(1)
 driver.find_element_by_id("bdcsqb-nextBtn").click()
 time.sleep(5)
 
-
+#===================材料1=====================
 driver.find_element_by_class_name("addcl").click()
 time.sleep(2)
 
@@ -227,6 +280,33 @@ time.sleep(5)
 
 driver.find_element_by_class_name("close").click()
 time.sleep(1)
+
+#===================材料2=====================
+driver.find_element_by_class_name("addcl").click()
+time.sleep(2)
+
+#driver.find_element_by_id("jqg16_clmc").send_keys(u'材料1Aa')
+driver.find_elements_by_name("clmc")[1].send_keys(u'材料1Bb')
+time.sleep(1)
+
+driver.find_elements_by_name("bz")[1].send_keys(u'材料1Bb')
+time.sleep(1)
+
+driver.find_elements_by_class_name("upfj")[1].click()
+time.sleep(1)
+
+driver.find_element_by_name("file").send_keys("E:\\test-resource\\1.png")
+driver.find_element_by_name("file").send_keys("E:\\test-resource\\2.jpg")
+driver.find_element_by_name("file").send_keys("E:\\test-resource\\3.pdf")
+time.sleep(2)
+
+driver.find_element_by_id("startUpload_btn").click()
+time.sleep(5)
+
+driver.find_element_by_class_name("close").click()
+time.sleep(1)
+
+
 
 driver.find_element_by_class_name("submitcl").click()
 

@@ -24,11 +24,11 @@ time.sleep(1)
 
 
 #预售商品房买卖预告登记
-driver.find_element_by_xpath('//*[@id="content-index"]/div[1]/a[1]/div/span[2]').click()
+driver.find_element_by_xpath('//*[@id="content-index"]/div[2]/a[2]/div/span[2]').click()
 time.sleep(1)
 
 #共有方式为单独拥有
-driver.find_element_by_xpath('//*[@id="bdcsqb-form"]/div/label[2]').click()
+driver.find_element_by_xpath('//*[@id="bdcsqb-form"]/div/label[5]').click()
 time.sleep(1)
 
 #申请人情况
