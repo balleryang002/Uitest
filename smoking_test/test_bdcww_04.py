@@ -7,7 +7,7 @@ driver=webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(30)
 
-driver.get("http://192.168.88.3:3001/bear/#home")
+driver.get("http://#########################")
 time.sleep(1)
 
 driver.find_element_by_id("username").send_keys("admin")
